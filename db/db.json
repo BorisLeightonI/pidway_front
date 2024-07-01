@@ -1,0 +1,5 @@
+{
+  "citas": [
+    {"id":1, "nombreCliente": "cliente1", "fecha": "2024-06-28", "hora": "13:57:25.123Z", "Descripcion": "descripción de cita." }
+  ]
+}
