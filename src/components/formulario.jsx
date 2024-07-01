@@ -2,24 +2,37 @@ import { Field, Form, Formik } from "formik"
 import { useContext, useEffect, useRef, useState } from "react"
 import './formulario.css';
 import { formContext } from "../contextos/context";
-import { CREATE, EDIT, LOCAL_API, SHOW } from "../utils/constantes";
+import { CREATE, EDIT, LOCAL_API, MENSAJE_TIMEOUT, SHOW } from "../utils/constantes";
 import axios from "axios";
 
 
 function Formulario() {
   const {cita, action, setReload} = useContext(formContext);
   console.log('CITA DESDE FORMULARIO CONTEXT', cita);
+  const [enviado, setEnviado] = useState(false);
   
   const handleSubmit = (values) => {
     const {_, ...restValues} = values;
     console.log('VALORES',values)
     if(action===EDIT) axios.patch(`${LOCAL_API}/citas/${cita.id}`, restValues)
                       .then(ans => {console.log(ans); setReload(p=>!p);})
+                      .then(()=>{
+                        setEnviado(true);
+                        setTimeout(() => {
+                          setEnviado(false);
+                        }, MENSAJE_TIMEOUT);
+                      })
                       .catch(err => console.error(err))
     if(action===CREATE){
       console.log('CREAR', values);
       axios.post(`${LOCAL_API}/citas`, values)
         .then(ans => {console.log(ans); setReload(p=>!p);})
+        .then(()=>{
+          setEnviado(true);
+          setTimeout(() => {
+            setEnviado(false);
+          }, MENSAJE_TIMEOUT);
+        })
         .catch(err => console.error(err))
     }
   }
