@@ -2,9 +2,11 @@ import { createContext, useState } from "react"
 
 export const formContext = createContext(); 
 const ContextFormProvider = ({children})=>{
-  const [cita, setCita] = useState({nombreCliente: "cliente1", fecha: "2024-06-28", hora: "13:57:25.123Z", descripcion: "descripción de cita."});
+  const [cita, setCita] = useState({});
+  const [action, setAction] = useState(null)
+  const [reload, setReload] = useState(false);
 
-  return <formContext.Provider value={{cita, setCita}}>
+  return <formContext.Provider value={{cita, setCita, action, setAction, setReload, reload}}>
     {children}
   </formContext.Provider>
 

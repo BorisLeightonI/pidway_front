@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Formulario from './components/formulario'
 import ContextFormProvider from './contextos/context'
+import ListaCitas from './components/listaCitas'
+import DetallesModal from './components/detallesModal'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,7 +13,8 @@ function App() {
   return (
     <>
     <ContextFormProvider>
-      <Formulario/>
+      <DetallesModal/>
+      <ListaCitas/>
     </ContextFormProvider>
     </>
   )

@@ -1,5 +1,11 @@
-.form_container {
+.form_container form{
   display: flex;
   flex-direction: column;
   gap: 5px;
+  align-items: center;
+}
+
+input[type="submit"] {
+  width: fit-content;
+  padding: 10px;
 }

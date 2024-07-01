@@ -1,21 +1,46 @@
 import { Field, Form, Formik } from "formik"
-import { useContext, useRef } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import './formulario.css';
 import { formContext } from "../contextos/context";
+import { CREATE, EDIT, LOCAL_API, SHOW } from "../utils/constantes";
+import axios from "axios";
 
 
 function Formulario() {
-  const {cita} = useContext(formContext);
-  console.log('CITA DESDE CONTEXT', cita);
-  const initialValuesRef = useRef({nombreCliente: "cliente1", fecha: "2024-06-28", hora: "13:57:25.123Z", descripcion: "descripción de cita."})
+  const {cita, action, setReload} = useContext(formContext);
+  console.log('CITA DESDE FORMULARIO CONTEXT', cita);
+  
+  const handleSubmit = (values) => {
+    const {_, ...restValues} = values;
+    console.log('VALORES',values)
+    if(action===EDIT) axios.patch(`${LOCAL_API}/citas/${cita.id}`, restValues)
+                      .then(ans => {console.log(ans); setReload(p=>!p);})
+                      .catch(err => console.error(err))
+    if(action===CREATE){
+      console.log('CREAR', values);
+      axios.post(`${LOCAL_API}/citas`, values)
+        .then(ans => {console.log(ans); setReload(p=>!p);})
+        .catch(err => console.error(err))
+    }
+  }
   return (
     <div className="form_container">
-      <Formik initialValues={initialValuesRef.current} >
-        <Form>
-          <Field placeholder='Nombre de Cliente' name='nombreCliente'/>
-          <Field placeholder='Fecha' name='fecha' type='date'/>
-          <Field placeholder='Hora' name='hora' type='time'/>
-          <Field placeholder='Descripción' name='descripcion' type="textarea"/>
+      <Formik initialValues={{...cita}} onSubmit={handleSubmit} enableReinitialize>
+        <Form onClick={e => e.stopPropagation()}>
+          <div className="nombre">
+            <label htmlFor="">Nombre de Cliente</label>
+            <Field placeholder='Nombre de Cliente' name='nombreCliente' disabled={action===SHOW}/>
+          </div>
+          <div className="fecha">
+            <label htmlFor="">Fecha</label>
+            <Field placeholder='Fecha' name='fecha' type='date' disabled={action===SHOW}/>
+          </div>
+          <div className="hora">
+            <label htmlFor="">Hora</label>
+            <Field placeholder='Hora' name='hora' type='time' disabled={action===SHOW}/>
+          </div>
+          <Field placeholder='Descripción' name='Descripcion' as="textArea" disabled={action===SHOW}/>
+          <Field type='submit' value='Enviar' disabled={action===SHOW}/>
         </Form>
 
       </Formik>
