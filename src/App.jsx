@@ -6,6 +6,7 @@ import Formulario from './components/formulario'
 import ContextFormProvider from './contextos/context'
 import ListaCitas from './components/listaCitas'
 import DetallesModal from './components/detallesModal'
+import DeleteModal from './components/deleteModal'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,6 +16,7 @@ function App() {
     <ContextFormProvider>
       <DetallesModal/>
       <ListaCitas/>
+      <DeleteModal/>
     </ContextFormProvider>
     </>
   )

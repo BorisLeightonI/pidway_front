@@ -6,3 +6,9 @@
   background-color: rgba(117, 103, 103, 0.89);
   height: 300px;
 }
+.delete {
+  top: 25vh;
+}
+.deleted_message {
+  color: red;
+}

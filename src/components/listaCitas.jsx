@@ -20,15 +20,18 @@ function ListaCitas() {
     setAction(EDIT);
     setCita(cita);
   }
-  const handleDelete = ()=>{
+  const handleDelete = (cita)=>{
     setAction(DELETE);
-    setCita();
+    setCita(cita);
   }
-  const handleAddCita = () => setAction(CREATE);
+  const handleAddCita = () => {
+    setCita({});
+    setAction(CREATE);
+  }
 
   return (
     <>
-      <div className="lista_citas">...
+      <div className="lista_citas">
         <table>
           <thead>
             <tr>
@@ -48,7 +51,7 @@ function ListaCitas() {
           <td>
             <GiAllSeeingEye onClick={()=>handleShow(cita)}/>  
             <FaEdit onClick={()=>handleEdit(cita)}/> 
-            <FaTrashAlt onClick={handleDelete}/>
+            <FaTrashAlt onClick={()=>handleDelete(cita)}/>
           </td>
         </tr>)
 
@@ -66,7 +69,7 @@ function ListaCitas() {
           />
         }
         </table>
-        <IoIosAddCircleOutline onClick={handleAddCita}/>
+        <IoIosAddCircleOutline size={'2em'} color='lightblue' onClick={handleAddCita}/>
       </div>
     </>
   )

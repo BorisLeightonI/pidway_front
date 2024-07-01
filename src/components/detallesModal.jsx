@@ -5,15 +5,16 @@ import Formulario from './formulario';
 import './detallesmodal.css'
 
 function DetallesModal() {
-  const {cita, action, setAction} = useContext(formContext);
+  const {cita, action, setAction, setCita} = useContext(formContext);
   const handleModalClick = (e)=>{
     e.preventDefault();
     e.stopPropagation();
-    setAction(null)
+    setCita();
+    setAction(null);
   };
   return (
     <div className='modal_container' hidden={!(action===SHOW || action===EDIT || action===CREATE)} onClick={handleModalClick}>
-      <h5>{action===SHOW?'Modal Detalles':'Editar'}</h5>
+      <h5>{action===SHOW?'Información de Cita':'Editar Cita'}</h5>
       <Formulario/>
     </div>
   )

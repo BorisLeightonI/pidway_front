@@ -7,7 +7,7 @@ import axios from "axios";
 
 
 function Formulario() {
-  const {cita, action, setReload} = useContext(formContext);
+  const {cita, action, setReload, setCita} = useContext(formContext);
   console.log('CITA DESDE FORMULARIO CONTEXT', cita);
   const [enviado, setEnviado] = useState(false);
   
@@ -19,7 +19,7 @@ function Formulario() {
                       .then(()=>{
                         setEnviado(true);
                         setTimeout(() => {
-                          setEnviado(false);
+                          setEnviado(false); setCita({});
                         }, MENSAJE_TIMEOUT);
                       })
                       .catch(err => console.error(err))
@@ -30,7 +30,7 @@ function Formulario() {
         .then(()=>{
           setEnviado(true);
           setTimeout(() => {
-            setEnviado(false);
+            setEnviado(false); setCita({});
           }, MENSAJE_TIMEOUT);
         })
         .catch(err => console.error(err))
