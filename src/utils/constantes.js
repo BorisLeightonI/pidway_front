@@ -10,6 +10,8 @@ const SHOW = 'mostrar';
 const DELETE = 'eliminar';
 const CREATE = 'crear';
 
+const MENSAJE_TIMEOUT = 2000;
+
 
 export {
   LOCAL_API,
@@ -21,5 +23,6 @@ export {
   EDIT,
   SHOW,
   DELETE,
-  CREATE
+  CREATE,
+  MENSAJE_TIMEOUT
 }

@@ -53,6 +53,11 @@ function Formulario() {
             <Field placeholder='Hora' name='hora' type='time' disabled={action===SHOW}/>
           </div>
           <Field placeholder='Descripción' name='Descripcion' as="textArea" disabled={action===SHOW}/>
+          {enviado&& 
+          <p>
+            {action===EDIT?'Editado correctamente':'Creado Correctamente'}
+          </p>
+          }
           <Field type='submit' value='Enviar' disabled={action===SHOW}/>
         </Form>
 
