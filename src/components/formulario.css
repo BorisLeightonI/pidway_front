@@ -9,3 +9,6 @@ input[type="submit"] {
   width: fit-content;
   padding: 10px;
 }
+.error_message{
+  color: red;
+}
