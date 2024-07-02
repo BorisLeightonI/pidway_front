@@ -31,6 +31,7 @@ function ListaCitas() {
 
   return (
     <>
+      <h2>Listado de Citas</h2>
       <div className="lista_citas">
         <table>
           <thead>
