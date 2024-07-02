@@ -28,9 +28,14 @@ function ListaCitas() {
     setCita({});
     setAction(CREATE);
   }
+  const handleFilterByDate = (e) => {
+    const {name, value} = e.target;
+    console.log(name, value);
+  }
 
   return (
     <>
+    <input type="date" name="filtro" id="" onChange={handleFilterByDate}/>
       <h2>Listado de Citas</h2>
       <div className="lista_citas">
         <table>

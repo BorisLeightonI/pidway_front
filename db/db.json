@@ -1,5 +1,32 @@
 {
   "citas": [
-    {"id":1, "nombreCliente": "cliente1", "fecha": "2024-06-28", "hora": "13:57:25.123Z", "Descripcion": "descripción de cita." }
+    {
+      "id": "1",
+      "nombreCliente": "cliente1 mod2",
+      "fecha": "2024-06-28",
+      "hora": "17:30:07",
+      "Descripcion": "editadas"
+    },
+    {
+      "id": "2",
+      "nombreCliente": "cliente2 modificado",
+      "fecha": "2024-06-28",
+      "hora": "13:57:25",
+      "Descripcion": "descripción de cita."
+    },
+    {
+      "id": "2357",
+      "nombreCliente": "Cliente tres modificado",
+      "fecha": "2023-08-02",
+      "hora": "08:45",
+      "Descripcion": "Descripción\n"
+    },
+    {
+      "id": "ed87",
+      "Descripcion": "desc texth",
+      "fecha": "2023-08-03",
+      "hora": "10:48",
+      "nombreCliente": "nuevo"
+    }
   ]
 }
