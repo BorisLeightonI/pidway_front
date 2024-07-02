@@ -21,7 +21,10 @@ function DeleteModal() {
   }
   return (
     <div className='modal_container delete' hidden={action!==DELETE} onClick={handleCancel}>
-      <p>DeleteModal: cita {cita?.id}</p>
+      <h3>Eliminar cita {cita?.id}</h3>
+      <h3>¿Está seguro?</h3>
+      <br />
+      <br />
       <button onClick={handleCancel}>Cancelar</button>
       <button onClick={handleAccept}>Aceptar</button>
       {showMessage&&
