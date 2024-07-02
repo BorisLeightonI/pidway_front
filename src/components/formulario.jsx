@@ -39,7 +39,7 @@ function Formulario() {
   return (
     <div className="form_container">
       <Formik initialValues={
-        Object.keys(cita).length>0?{...cita}:{Descripcion: "", fecha: "", hora: "", nombreCliente: "cliente1 mod2"}
+        action===EDIT?{...cita}:{Descripcion: "", fecha: "", hora: "", nombreCliente: ""}
         } 
         onSubmit={handleSubmit} 
         enableReinitialize>
