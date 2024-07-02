@@ -49,9 +49,9 @@ function ListaCitas() {
           <td>{cita.hora}</td>
           <td>{cita.Descripcion}</td>
           <td>
-            <GiAllSeeingEye onClick={()=>handleShow(cita)}/>  
-            <FaEdit onClick={()=>handleEdit(cita)}/> 
-            <FaTrashAlt onClick={()=>handleDelete(cita)}/>
+            <GiAllSeeingEye size={'2em'} onClick={()=>handleShow(cita)}/>  
+            <FaEdit size={'2em'} onClick={()=>handleEdit(cita)}/> 
+            <FaTrashAlt size={'2em'} onClick={()=>handleDelete(cita)}/>
           </td>
         </tr>)
 
