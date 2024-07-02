@@ -49,7 +49,7 @@ function Formulario() {
   return (
     <div className="form_container">
       <Formik initialValues={
-        action===EDIT?{...cita}:{Descripcion: "", fecha: "", hora: "", nombreCliente: ""}
+        (action===EDIT||action===SHOW)?{...cita}:{Descripcion: "", fecha: "", hora: "", nombreCliente: ""}
         } 
         onSubmit={handleSubmit} 
         validate={handleValidar}
@@ -76,10 +76,13 @@ function Formulario() {
               <ErrorMessage name="hora"/>
             </div>
           </div>
-          <Field placeholder='Descripción' name='Descripcion' as="textArea" disabled={action===SHOW}/>
-          <div className="error_message">
+          <div className="descripcion">
+            <label htmlFor="">Descripción</label>
+            <Field placeholder='Descripción' name='Descripcion' disabled={action===SHOW}/>
+            <div className="error_message">
               <ErrorMessage name="Descripcion"/>
             </div>
+          </div>
           {enviado&& 
           <p>
             {action===EDIT?'Editado correctamente':'Creado Correctamente'}
