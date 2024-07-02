@@ -14,7 +14,7 @@ function DetallesModal() {
   };
   return (
     <div className='modal_container' hidden={!(action===SHOW || action===EDIT || action===CREATE)} onClick={handleModalClick}>
-      <h5>{action===SHOW?'Información de Cita':'Editar Cita'}</h5>
+      <h3>{action===SHOW?'Información de Cita':action===EDIT?'Editar Cita':'Crear Nueva Cita'}</h3>
       <Formulario/>
     </div>
   )
